@@ -34,10 +34,10 @@ int main()
         {
             case 1:
                 //tick()
-				break;
-			case 2:
-			    //animate() delay()
-				break;
+	        break;
+	    case 2:
+		//animate() delay()
+		break;
             case 3:
                 while (start==0)
                 {
@@ -63,8 +63,8 @@ int main()
                 }
                 break;
             default:
-				printf("Invalid number! Try again \n");
-				break;
+	    printf("Invalid number! Try again \n");
+	    break;
         }
     }
 }
