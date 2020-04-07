@@ -73,7 +73,7 @@ int tampilan_awal(void)
 {
     int n;
 
-    printf("                  GAME OF LIFE\n");
+    	printf("                  GAME OF LIFE\n");
 	printf(" =====================================================\n");
 	printf("             1- Tick             \n");
 	printf("             2- Animate          \n");
