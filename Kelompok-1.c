@@ -11,19 +11,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <limits.h>
 
-typedef struct node {
-    char kondisi;
-    struct node* topleft;
-    struct node* topright;
-    struct node* top;
-    struct node* left;
-    struct node* right;
-    struct node* bottomleft;
-    struct node* bottomright;
-    struct node* bottom;
-}node;
-
+int arr[MAX_INT][MAX_INT];
 int kolom,baris;
 
 void readFile(char namaFile[64]){
@@ -43,6 +33,7 @@ void readFile(char namaFile[64]){
     for(int i=0;i<kolom+1;i++){
         for(int j=0;j<baris;j++){
             c=fgetc(fp);
+            arr[i][j]=(int)c;
             printf("%c",c);
         }
     }
