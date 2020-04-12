@@ -15,11 +15,13 @@ int main()
     title();
     delay(2000);
     system("cls");
-    tmp = Begin();
+    tmp = rules();
     system("cls");
+    tmp = howto();
+    system("cls");
+    tmp = Begin();
     insertFile(file);
     system("cls");
-    printf ("baris data : %d\nkolom data : %d\n",baris,kolom);
     printArr(&gen);
     printf ("\n");
     while (end==0){
@@ -39,17 +41,13 @@ int main()
                 while (start==0)
                 {
                 system("cls");
-                printf("Insert a new file? \n");
-                printf("1.Yes       2.No \n");
-                printf("Enter your choice : "); scanf("%d",&number);
+                number = close();
                     if(number==1)
                     {
                         start=1;
-                        system("cls");
                         insertFile(file);
                         system("cls");
                         gen = 0;
-                        printf ("baris data : %d\nkolom data : %d\n",baris,kolom);
                         printArr(&gen);
                         printf ("\n");
                     }

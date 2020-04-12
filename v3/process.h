@@ -3,9 +3,16 @@
 
 #define MAX 100
 
+char file[MAX]="";
 char arr[100][100];
 char temp[100][100];
 int kolom,baris;
+
+void delay(int milli_seconds){
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds)
+    ;
+}
 
 void readFile(FILE*fp){
     char str[50];
@@ -22,22 +29,28 @@ void readFile(FILE*fp){
         for(int j=0;j<kolom+1;j++){
             c=fgetc(fp);
             arr[i][j]= c;
-            //printf("%c",c);
         }
     }
 }
 
-void insertFile(FILE *fp){
+void insertFile(FILE *fp){  
     int repeat = 0;
     do
     {
-        char file[MAX]="";
-        printf("Insert file : ");
+        system("cls");
+        printf("=======================================================\n");
+        printf("        Please insert the initial setup file\n");
+        printf("=======================================================\n");
+        printf("Setup File : ");
         scanf("%s",file);
         FILE *fp = fopen(file, "r");
         if (!fp)
         {
-            printf("Can't open file, Try again \n");
+            system("cls");
+            printf("=======================================================\n");
+            printf("            Can't open file, Try again \n");
+            printf("=======================================================\n");
+            delay(1000);
             repeat=0;
         }
         else
@@ -118,7 +131,14 @@ void nextGen(){
 
 void printArr(int *gen){
     int i,j;
-    printf("Gen %d : \n",*gen);
+    printf("=======================================================\n");
+    printf("                Setup file : %s\n",file);
+    printf("                Baris data : %d\n",baris);
+    printf("                Kolom data : %d\n",kolom);
+    printf("                Gen        : %d\n",*gen);
+    printf("=======================================================\n");
+    printf("\n");
+    printf(" ");
     for(i = 0; i<=baris; i++){
         for(j= 0; j <= kolom+1; j++){
             printf("%c",arr[i][j]);
@@ -133,11 +153,6 @@ void tick(int*gen){
     printArr(gen);
 }
 
-void delay(int milli_seconds){
-    clock_t start_time = clock();
-    while (clock() < start_time + milli_seconds)
-    ;
-}
 
 void animate(int n, int*gen){            
     int i;
