@@ -90,6 +90,7 @@ int hitungTetangga(int loc_r, int loc_c){           ///Menghitung tetangga dari 
                 ///IMPLEMENTASI ARRAY TOROIDAL
                 A = i;
                 B = j;
+				
                 if(i < 0){                          /// Jika elemen merupakan baris paling atas, ubah posisi elemen yang diperiksa
                     A = baris-1;                    /// menjadi elemen baris paling bawah di kolom yang sama
                 }
@@ -102,6 +103,7 @@ int hitungTetangga(int loc_r, int loc_c){           ///Menghitung tetangga dari 
                 if(j > kolom-1){                    /// Jika elemen merupakan kolom paling kanan, ubah posisi elemen yang diperiksa
                     B = 0;                          /// menjadi elemen kolom paling kiri di baris yang sama
                 }
+				
                 total += lifeCheck(arr[A][B]);      /// Periksa kondisi elemen dan menambahkan ke variabel total tetangga
             }
         }
@@ -152,11 +154,11 @@ void printArr(int *gen){                            ///Mencetak array
     printf("                Gen        : %d\n",*gen);
     printf("=======================================================\n");
     printf("\n");
-    printf(" ");
-    for(i = 0; i<=baris; i++){
-        for(j= 0; j <= kolom+1; j++){
+    for(i = 0; i<baris; i++){
+        for(j= 0; j < kolom; j++){
             printf("%c",arr[i][j]);
         }
+		printf ("\n");
     }
 }
 
@@ -174,7 +176,7 @@ void animate(int n, int*gen){                       ///"Menganimasikan" sesuai i
     for (i =0; i <n; i++){
         system("cls");
         tick(gen);
-        delay(250);
+        delay(100);
     }
 }
 
